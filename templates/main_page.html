@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List Manager</title>
+</head>
+<body>
+    <h1>Welcome to the Todo List Manager</h1>
+    <h3>Here you can see all existing tasks</h3>
+    <!---->
+    <ul>
+        {% for task in tasks %}
+            <li> {{task[1]}} <a href={{url_for('remove_task',id=task[0])}}>remove</a> </li>
+        {% endfor %}
+    </ul>
+      <!--RICHIEDO L'URL PER LA FUNZIONE DOPO LA DEFINIZIONE DELLA ROUTE-->
+    <form action="{{ url_for('main_page') }}" method="post">
+        <p>Add a new task: <input type="text" name="newTask"></p>
+        <input type="submit" value="Add it!">
+    </form>
+</body>
+</html>
